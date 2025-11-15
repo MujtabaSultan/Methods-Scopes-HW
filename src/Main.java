@@ -3,43 +3,45 @@
 public class Main {
 
     private static int total_calculation=0;
-    protected static int last_result=0;
-    public static String calculator_name = "MyCalculator";
+    protected  int last_result=0;
+    public  String calculator_name = "MyCalculator";
 
-    public static int add(int a ,int b ){
+    public  int add(int a ,int b ){
         last_result=a+b;
         total_calculation++;
         return a+b;
 
     }
-    protected static int sub(int a ,int b ){
+    protected  int sub(int a ,int b ){
         last_result=a-b;
         total_calculation++;
         return a-b;
     }
-    private static void reset(){
+    private  void reset(){
         last_result=0;
     }
-    public static void monthlyReset(){
+    public  void monthlyReset(){
         reset();
     }
     public static void showTotalCalc(){
         System.out.println(total_calculation);
     }
-    public static void showLastResult(){
+    public void showLastResult(){
         int last_result = 0;
 
-        System.out.println("the local is " + last_result + "the class oen is " + Main.last_result);
+        System.out.println("the local is " + last_result + "the class oen is " + this.last_result);
     }
 
 
     public static void main(String[] args) {
 
-        System.out.println("result of this is "+add(10,20) + " total calcs : " +total_calculation + " ,last res : "+ last_result);
-        System.out.println(sub(10,9)+ "total calcs : " +total_calculation + " ,last res : "+ last_result);
+        Main main = new Main();
+
+        System.out.println("result of this is "+main.add(10,20) + " total calcs : " +total_calculation + " ,last res : "+ main.last_result);
+        System.out.println(main.sub(10,9)+ "total calcs : " +total_calculation + " ,last res : "+ main.last_result);
         showTotalCalc();
-        showLastResult();
-        monthlyReset();
-        System.out.println("now its reset to " + last_result);
+        main.showLastResult();
+        main.monthlyReset();
+        System.out.println("now its reset to " + main.last_result);
     }
 }
